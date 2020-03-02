@@ -278,22 +278,22 @@
   "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"subtractedValue\",\"type\":\"uint256\"}],\"name\":\"decreaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"addedValue\",\"type\":\"uint256\"}],\"name\":\"increaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"OpenZeppelin Community - <maintainers@openzeppelin.org>\",\"details\":\"ERC20 minting logic.\",\"methods\":{\"allowance(address,address)\":{\"details\":\"Function to check the amount of tokens that an owner allowed to a spender.\",\"params\":{\"owner\":\"address The address which owns the funds.\",\"spender\":\"address The address which will spend the funds.\"},\"return\":\"A uint256 specifying the amount of tokens still available for the spender.\"},\"approve(address,uint256)\":{\"details\":\"Approve the passed address to spend the specified amount of tokens on behalf of msg.sender. Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\",\"params\":{\"spender\":\"The address which will spend the funds.\",\"value\":\"The amount of tokens to be spent.\"}},\"balanceOf(address)\":{\"details\":\"Gets the balance of the specified address.\",\"params\":{\"owner\":\"The address to query the balance of.\"},\"return\":\"A uint256 representing the amount owned by the passed address.\"},\"decreaseAllowance(address,uint256)\":{\"details\":\"Decrease the amount of tokens that an owner allowed to a spender. approve should be called when _allowed[msg.sender][spender] == 0. To decrement allowed value is better to use this function to avoid 2 calls (and wait until the first transaction is mined) From MonolithDAO Token.sol Emits an Approval event.\",\"params\":{\"spender\":\"The address which will spend the funds.\",\"subtractedValue\":\"The amount of tokens to decrease the allowance by.\"}},\"increaseAllowance(address,uint256)\":{\"details\":\"Increase the amount of tokens that an owner allowed to a spender. approve should be called when _allowed[msg.sender][spender] == 0. To increment allowed value is better to use this function to avoid 2 calls (and wait until the first transaction is mined) From MonolithDAO Token.sol Emits an Approval event.\",\"params\":{\"addedValue\":\"The amount of tokens to increase the allowance by.\",\"spender\":\"The address which will spend the funds.\"}},\"mint(address,uint256)\":{\"details\":\"Function to mint tokens\",\"params\":{\"to\":\"The address that will receive the minted tokens.\",\"value\":\"The amount of tokens to mint.\"},\"return\":\"A boolean that indicates if the operation was successful.\"},\"totalSupply()\":{\"details\":\"Total number of tokens in existence\"},\"transfer(address,uint256)\":{\"details\":\"Transfer token to a specified address\",\"params\":{\"to\":\"The address to transfer to.\",\"value\":\"The amount to be transferred.\"}},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfer tokens from one address to another. Note that while this function emits an Approval event, this is not required as per the specification, and other compliant implementations may not emit the event.\",\"params\":{\"from\":\"address The address which you want to send tokens from\",\"to\":\"address The address which you want to transfer to\",\"value\":\"uint256 the amount of tokens to be transferred\"}}},\"title\":\"ERC20Mintable\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/ERC20Mintable.sol\":\"ERC20Mintable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/ERC20.sol\":{\"keccak256\":\"0x1312eb6c74207a8759cc254ee5ed449dcffd5dff82f8c3ecac75a4ce30c1deed\",\"urls\":[\"bzz-raw://0fed75094d119025ad2912d48c791d23e6b03386cd34ab75c4c1c5c6e5b9b1f3\",\"dweb:/ipfs/QmaB72GUneEAGBWmds2XSxKt1aQqmxGPuSwhdoP4iGrL1C\"]},\"/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/ERC20Mintable.sol\":{\"keccak256\":\"0x15375284c9aa1b7c1c73d546003cacbbb5270cdafb768867d1a65491e3d11ce0\",\"urls\":[\"bzz-raw://f9b28767e607b69039cf06fd0fb91b867959c2234c4ade99e476cc41de447b9f\",\"dweb:/ipfs/QmUxymcHuKCA96QcEb6ohLSJK48Fn6AQszpzVEbKwD8QxZ\"]},\"/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/IERC20.sol\":{\"keccak256\":\"0x13786a63ec6fbe6de1f9fe8780dc2b2dfb38ca6f45060c98b1e3ba8048285f6f\",\"urls\":[\"bzz-raw://591921fd2ba88ef969a26387696347ef3ddf7474a394c3ab8fd14f9aa6abc7ba\",\"dweb:/ipfs/QmR7mwHHAsPFVjPow6SY9z1bmGv6N1t35GuW3DZnxaqLyg\"]},\"/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/SafeMath.sol\":{\"keccak256\":\"0x07093daa2504a6800a22fdfc7f0591d5dbffeb207103a82a905c67d19aed5297\",\"urls\":[\"bzz-raw://1dc11d617e127cef41be1305ecb1adf12a364b67e0519df677f5508430cef576\",\"dweb:/ipfs/QmW6FXuCLM4YMpfe2G2KKE4BeTLWMEsjDtRuVkGWQMdacg\"]}},\"version\":1}",
   "bytecode": "0x608060405234801561001057600080fd5b50610c11806100206000396000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c806340c10f191161006657806340c10f191461020857806370a082311461026e578063a457c2d7146102c6578063a9059cbb1461032c578063dd62ed3e1461039257610093565b8063095ea7b31461009857806318160ddd146100fe57806323b872dd1461011c57806339509351146101a2575b600080fd5b6100e4600480360360408110156100ae57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061040a565b604051808215151515815260200191505060405180910390f35b610106610421565b6040518082815260200191505060405180910390f35b6101886004803603606081101561013257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061042b565b604051808215151515815260200191505060405180910390f35b6101ee600480360360408110156101b857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506104dc565b604051808215151515815260200191505060405180910390f35b6102546004803603604081101561021e57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610581565b604051808215151515815260200191505060405180910390f35b6102b06004803603602081101561028457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610597565b6040518082815260200191505060405180910390f35b610312600480360360408110156102dc57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506105df565b604051808215151515815260200191505060405180910390f35b6103786004803603604081101561034257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610684565b604051808215151515815260200191505060405180910390f35b6103f4600480360360408110156103a857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061069b565b6040518082815260200191505060405180910390f35b6000610417338484610722565b6001905092915050565b6000600254905090565b6000610438848484610881565b6104d184336104cc85600160008a73ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a4b90919063ffffffff16565b610722565b600190509392505050565b6000610577338461057285600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a6b90919063ffffffff16565b610722565b6001905092915050565b600061058d8383610a8a565b6001905092915050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b600061067a338461067585600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a4b90919063ffffffff16565b610722565b6001905092915050565b6000610691338484610881565b6001905092915050565b6000600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff16141561075c57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff16141561079657600080fd5b80600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508173ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff167f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925836040518082815260200191505060405180910390a3505050565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156108bb57600080fd5b61090c816000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a4b90919063ffffffff16565b6000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555061099f816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a6b90919063ffffffff16565b6000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508173ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef836040518082815260200191505060405180910390a3505050565b600082821115610a5a57600080fd5b600082840390508091505092915050565b600080828401905083811015610a8057600080fd5b8091505092915050565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415610ac457600080fd5b610ad981600254610a6b90919063ffffffff16565b600281905550610b30816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a6b90919063ffffffff16565b6000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508173ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef836040518082815260200191505060405180910390a3505056fea265627a7a723158200d182814918bba58ce1a5f5180ee32043d576bfe02cd0c39c8bd24db91df221964736f6c63430005100032",
   "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100935760003560e01c806340c10f191161006657806340c10f191461020857806370a082311461026e578063a457c2d7146102c6578063a9059cbb1461032c578063dd62ed3e1461039257610093565b8063095ea7b31461009857806318160ddd146100fe57806323b872dd1461011c57806339509351146101a2575b600080fd5b6100e4600480360360408110156100ae57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061040a565b604051808215151515815260200191505060405180910390f35b610106610421565b6040518082815260200191505060405180910390f35b6101886004803603606081101561013257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061042b565b604051808215151515815260200191505060405180910390f35b6101ee600480360360408110156101b857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506104dc565b604051808215151515815260200191505060405180910390f35b6102546004803603604081101561021e57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610581565b604051808215151515815260200191505060405180910390f35b6102b06004803603602081101561028457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610597565b6040518082815260200191505060405180910390f35b610312600480360360408110156102dc57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506105df565b604051808215151515815260200191505060405180910390f35b6103786004803603604081101561034257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610684565b604051808215151515815260200191505060405180910390f35b6103f4600480360360408110156103a857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061069b565b6040518082815260200191505060405180910390f35b6000610417338484610722565b6001905092915050565b6000600254905090565b6000610438848484610881565b6104d184336104cc85600160008a73ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a4b90919063ffffffff16565b610722565b600190509392505050565b6000610577338461057285600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a6b90919063ffffffff16565b610722565b6001905092915050565b600061058d8383610a8a565b6001905092915050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b600061067a338461067585600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a4b90919063ffffffff16565b610722565b6001905092915050565b6000610691338484610881565b6001905092915050565b6000600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff16141561075c57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff16141561079657600080fd5b80600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508173ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff167f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925836040518082815260200191505060405180910390a3505050565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156108bb57600080fd5b61090c816000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a4b90919063ffffffff16565b6000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555061099f816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a6b90919063ffffffff16565b6000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508173ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef836040518082815260200191505060405180910390a3505050565b600082821115610a5a57600080fd5b600082840390508091505092915050565b600080828401905083811015610a8057600080fd5b8091505092915050565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415610ac457600080fd5b610ad981600254610a6b90919063ffffffff16565b600281905550610b30816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610a6b90919063ffffffff16565b6000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508173ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef836040518082815260200191505060405180910390a3505056fea265627a7a723158200d182814918bba58ce1a5f5180ee32043d576bfe02cd0c39c8bd24db91df221964736f6c63430005100032",
-  "sourceMap": "180:409:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;180:409:5;;;;;;;",
-  "deployedSourceMap": "180:409:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;180:409:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2443:148:4;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2443:148:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;596:91;;;:::i;:::-;;;;;;;;;;;;;;;;;;;3064:228;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3064:228:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;3818:203;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3818:203:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;466:120:5;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;466:120:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;906:106:4;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;906:106:4;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;4552:213;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;4552:213:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1656:140;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1656:140:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1351:131;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1351:131:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2443:148;2508:4;2525:36;2534:10;2546:7;2555:5;2525:8;:36::i;:::-;2579:4;2572:11;;2443:148;;;;:::o;596:91::-;640:7;667:12;;660:19;;596:91;:::o;3064:228::-;3143:4;3160:26;3170:4;3176:2;3180:5;3160:9;:26::i;:::-;3197:65;3206:4;3212:10;3224:37;3255:5;3224:8;:14;3233:4;3224:14;;;;;;;;;;;;;;;:26;3239:10;3224:26;;;;;;;;;;;;;;;;:30;;:37;;;;:::i;:::-;3197:8;:65::i;:::-;3280:4;3273:11;;3064:228;;;;;:::o;3818:203::-;3898:4;3915:76;3924:10;3936:7;3945:45;3979:10;3945:8;:20;3954:10;3945:20;;;;;;;;;;;;;;;:29;3966:7;3945:29;;;;;;;;;;;;;;;;:33;;:45;;;;:::i;:::-;3915:8;:76::i;:::-;4009:4;4002:11;;3818:203;;;;:::o;466:120:5:-;523:4;540:16;546:2;550:5;540;:16::i;:::-;574:4;567:11;;466:120;;;;:::o;906:106:4:-;961:7;988:9;:16;998:5;988:16;;;;;;;;;;;;;;;;981:23;;906:106;;;:::o;4552:213::-;4637:4;4654:81;4663:10;4675:7;4684:50;4718:15;4684:8;:20;4693:10;4684:20;;;;;;;;;;;;;;;:29;4705:7;4684:29;;;;;;;;;;;;;;;;:33;;:50;;;;:::i;:::-;4654:8;:81::i;:::-;4753:4;4746:11;;4552:213;;;;:::o;1656:140::-;1717:4;1734:32;1744:10;1756:2;1760:5;1734:9;:32::i;:::-;1784:4;1777:11;;1656:140;;;;:::o;1351:131::-;1423:7;1450:8;:15;1459:5;1450:15;;;;;;;;;;;;;;;:24;1466:7;1450:24;;;;;;;;;;;;;;;;1443:31;;1351:131;;;;:::o;6651:254::-;6763:1;6744:21;;:7;:21;;;;6736:30;;;;;;6802:1;6785:19;;:5;:19;;;;6777:28;;;;;;6845:5;6818:8;:15;6827:5;6818:15;;;;;;;;;;;;;;;:24;6834:7;6818:24;;;;;;;;;;;;;;;:32;;;;6882:7;6866:31;;6875:5;6866:31;;;6891:5;6866:31;;;;;;;;;;;;;;;;;;6651:254;;;:::o;4992:262::-;5094:1;5080:16;;:2;:16;;;;5072:25;;;;;;5128:26;5148:5;5128:9;:15;5138:4;5128:15;;;;;;;;;;;;;;;;:19;;:26;;;;:::i;:::-;5110:9;:15;5120:4;5110:15;;;;;;;;;;;;;;;:44;;;;5181:24;5199:5;5181:9;:13;5191:2;5181:13;;;;;;;;;;;;;;;;:17;;:24;;;;:::i;:::-;5165:9;:13;5175:2;5165:13;;;;;;;;;;;;;;;:40;;;;5236:2;5221:25;;5230:4;5221:25;;;5240:5;5221:25;;;;;;;;;;;;;;;;;;4992:262;;;:::o;1313:150:7:-;1371:7;1404:1;1399;:6;;1391:15;;;;;;1417:9;1433:1;1429;:5;1417:17;;1454:1;1447:8;;;1313:150;;;;:::o;1551:::-;1609:7;1629:9;1645:1;1641;:5;1629:17;;1670:1;1665;:6;;1657:15;;;;;;1692:1;1685:8;;;1551:150;;;;:::o;5606:269:4:-;5700:1;5681:21;;:7;:21;;;;5673:30;;;;;;5731:23;5748:5;5731:12;;:16;;:23;;;;:::i;:::-;5716:12;:38;;;;5786:29;5809:5;5786:9;:18;5796:7;5786:18;;;;;;;;;;;;;;;;:22;;:29;;;;:::i;:::-;5765:9;:18;5775:7;5765:18;;;;;;;;;;;;;;;:50;;;;5852:7;5831:36;;5848:1;5831:36;;;5861:5;5831:36;;;;;;;;;;;;;;;;;;5606:269;;:::o",
+  "sourceMap": "180:409:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;180:409:7;;;;;;;",
+  "deployedSourceMap": "180:409:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;180:409:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2443:148:6;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2443:148:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;596:91;;;:::i;:::-;;;;;;;;;;;;;;;;;;;3064:228;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3064:228:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;3818:203;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3818:203:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;466:120:7;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;466:120:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;906:106:6;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;906:106:6;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;4552:213;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;4552:213:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1656:140;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1656:140:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1351:131;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1351:131:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2443:148;2508:4;2525:36;2534:10;2546:7;2555:5;2525:8;:36::i;:::-;2579:4;2572:11;;2443:148;;;;:::o;596:91::-;640:7;667:12;;660:19;;596:91;:::o;3064:228::-;3143:4;3160:26;3170:4;3176:2;3180:5;3160:9;:26::i;:::-;3197:65;3206:4;3212:10;3224:37;3255:5;3224:8;:14;3233:4;3224:14;;;;;;;;;;;;;;;:26;3239:10;3224:26;;;;;;;;;;;;;;;;:30;;:37;;;;:::i;:::-;3197:8;:65::i;:::-;3280:4;3273:11;;3064:228;;;;;:::o;3818:203::-;3898:4;3915:76;3924:10;3936:7;3945:45;3979:10;3945:8;:20;3954:10;3945:20;;;;;;;;;;;;;;;:29;3966:7;3945:29;;;;;;;;;;;;;;;;:33;;:45;;;;:::i;:::-;3915:8;:76::i;:::-;4009:4;4002:11;;3818:203;;;;:::o;466:120:7:-;523:4;540:16;546:2;550:5;540;:16::i;:::-;574:4;567:11;;466:120;;;;:::o;906:106:6:-;961:7;988:9;:16;998:5;988:16;;;;;;;;;;;;;;;;981:23;;906:106;;;:::o;4552:213::-;4637:4;4654:81;4663:10;4675:7;4684:50;4718:15;4684:8;:20;4693:10;4684:20;;;;;;;;;;;;;;;:29;4705:7;4684:29;;;;;;;;;;;;;;;;:33;;:50;;;;:::i;:::-;4654:8;:81::i;:::-;4753:4;4746:11;;4552:213;;;;:::o;1656:140::-;1717:4;1734:32;1744:10;1756:2;1760:5;1734:9;:32::i;:::-;1784:4;1777:11;;1656:140;;;;:::o;1351:131::-;1423:7;1450:8;:15;1459:5;1450:15;;;;;;;;;;;;;;;:24;1466:7;1450:24;;;;;;;;;;;;;;;;1443:31;;1351:131;;;;:::o;6651:254::-;6763:1;6744:21;;:7;:21;;;;6736:30;;;;;;6802:1;6785:19;;:5;:19;;;;6777:28;;;;;;6845:5;6818:8;:15;6827:5;6818:15;;;;;;;;;;;;;;;:24;6834:7;6818:24;;;;;;;;;;;;;;;:32;;;;6882:7;6866:31;;6875:5;6866:31;;;6891:5;6866:31;;;;;;;;;;;;;;;;;;6651:254;;;:::o;4992:262::-;5094:1;5080:16;;:2;:16;;;;5072:25;;;;;;5128:26;5148:5;5128:9;:15;5138:4;5128:15;;;;;;;;;;;;;;;;:19;;:26;;;;:::i;:::-;5110:9;:15;5120:4;5110:15;;;;;;;;;;;;;;;:44;;;;5181:24;5199:5;5181:9;:13;5191:2;5181:13;;;;;;;;;;;;;;;;:17;;:24;;;;:::i;:::-;5165:9;:13;5175:2;5165:13;;;;;;;;;;;;;;;:40;;;;5236:2;5221:25;;5230:4;5221:25;;;5240:5;5221:25;;;;;;;;;;;;;;;;;;4992:262;;;:::o;1313:150:9:-;1371:7;1404:1;1399;:6;;1391:15;;;;;;1417:9;1433:1;1429;:5;1417:17;;1454:1;1447:8;;;1313:150;;;;:::o;1551:::-;1609:7;1629:9;1645:1;1641;:5;1629:17;;1670:1;1665;:6;;1657:15;;;;;;1692:1;1685:8;;;1551:150;;;;:::o;5606:269:6:-;5700:1;5681:21;;:7;:21;;;;5673:30;;;;;;5731:23;5748:5;5731:12;;:16;;:23;;;;:::i;:::-;5716:12;:38;;;;5786:29;5809:5;5786:9;:18;5796:7;5786:18;;;;;;;;;;;;;;;;:22;;:29;;;;:::i;:::-;5765:9;:18;5775:7;5765:18;;;;;;;;;;;;;;;:50;;;;5852:7;5831:36;;5848:1;5831:36;;;5861:5;5831:36;;;;;;;;;;;;;;;;;;5606:269;;:::o",
   "source": "pragma solidity ^0.5.1;\r\n\r\nimport \"./ERC20.sol\";\r\n\r\n/// @title ERC20Mintable\r\n/// @author OpenZeppelin Community - <maintainers@openzeppelin.org>\r\n/// @dev ERC20 minting logic.\r\n\r\ncontract ERC20Mintable is ERC20 {\r\n    /**\r\n     * @dev Function to mint tokens\r\n     * @param to The address that will receive the minted tokens.\r\n     * @param value The amount of tokens to mint.\r\n     * @return A boolean that indicates if the operation was successful.\r\n     */\r\n    function mint(address to, uint256 value) public returns (bool) {\r\n        _mint(to, value);\r\n        return true;\r\n    }\r\n}",
   "sourcePath": "C:\\Users\\lazypuppet\\SocialStreams\\contracts\\zeppelin\\ERC20Mintable.sol",
   "ast": {
     "absolutePath": "/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/ERC20Mintable.sol",
     "exportedSymbols": {
       "ERC20Mintable": [
-        1763
+        3008
       ]
     },
-    "id": 1764,
+    "id": 3009,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1742,
+        "id": 2987,
         "literals": [
           "solidity",
           "^",
@@ -301,16 +301,16 @@
           ".1"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:7"
       },
       {
         "absolutePath": "/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/ERC20.sol",
         "file": "./ERC20.sol",
-        "id": 1743,
+        "id": 2988,
         "nodeType": "ImportDirective",
-        "scope": 1764,
-        "sourceUnit": 1741,
-        "src": "27:21:5",
+        "scope": 3009,
+        "sourceUnit": 2986,
+        "src": "27:21:7",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -320,42 +320,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1744,
+              "id": 2989,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1740,
-              "src": "206:5:5",
+              "referencedDeclaration": 2985,
+              "src": "206:5:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$1740",
+                "typeIdentifier": "t_contract$_ERC20_$2985",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 1745,
+            "id": 2990,
             "nodeType": "InheritanceSpecifier",
-            "src": "206:5:5"
+            "src": "206:5:7"
           }
         ],
         "contractDependencies": [
-          1740,
-          1832
+          2985,
+          3077
         ],
         "contractKind": "contract",
         "documentation": "@title ERC20Mintable\n @author OpenZeppelin Community - <maintainers@openzeppelin.org>\n @dev ERC20 minting logic.",
         "fullyImplemented": true,
-        "id": 1763,
+        "id": 3008,
         "linearizedBaseContracts": [
-          1763,
-          1740,
-          1832
+          3008,
+          2985,
+          3077
         ],
         "name": "ERC20Mintable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1761,
+              "id": 3006,
               "nodeType": "Block",
-              "src": "529:57:5",
+              "src": "529:57:7",
               "statements": [
                 {
                   "expression": {
@@ -363,12 +363,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1755,
+                        "id": 3000,
                         "name": "to",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1747,
-                        "src": "546:2:5",
+                        "referencedDeclaration": 2992,
+                        "src": "546:2:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -376,12 +376,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1756,
+                        "id": 3001,
                         "name": "value",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1749,
-                        "src": "550:5:5",
+                        "referencedDeclaration": 2994,
+                        "src": "550:5:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -399,18 +399,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1754,
+                      "id": 2999,
                       "name": "_mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1629,
-                      "src": "540:5:5",
+                      "referencedDeclaration": 2874,
+                      "src": "540:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 1757,
+                    "id": 3002,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -418,28 +418,28 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "540:16:5",
+                    "src": "540:16:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1758,
+                  "id": 3003,
                   "nodeType": "ExpressionStatement",
-                  "src": "540:16:5"
+                  "src": "540:16:7"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 1759,
+                    "id": 3004,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "574:4:5",
+                    "src": "574:4:7",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -447,31 +447,31 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 1753,
-                  "id": 1760,
+                  "functionReturnParameters": 2998,
+                  "id": 3005,
                   "nodeType": "Return",
-                  "src": "567:11:5"
+                  "src": "567:11:7"
                 }
               ]
             },
             "documentation": "@dev Function to mint tokens\n@param to The address that will receive the minted tokens.\n@param value The amount of tokens to mint.\n@return A boolean that indicates if the operation was successful.",
-            "id": 1762,
+            "id": 3007,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1750,
+              "id": 2995,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1747,
+                  "id": 2992,
                   "name": "to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1762,
-                  "src": "480:10:5",
+                  "scope": 3007,
+                  "src": "480:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -479,10 +479,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1746,
+                    "id": 2991,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "480:7:5",
+                    "src": "480:7:7",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -494,11 +494,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1749,
+                  "id": 2994,
                   "name": "value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1762,
-                  "src": "492:13:5",
+                  "scope": 3007,
+                  "src": "492:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -506,10 +506,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1748,
+                    "id": 2993,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "492:7:5",
+                    "src": "492:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -519,19 +519,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "479:27:5"
+              "src": "479:27:7"
             },
             "returnParameters": {
-              "id": 1753,
+              "id": 2998,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1752,
+                  "id": 2997,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1762,
-                  "src": "523:4:5",
+                  "scope": 3007,
+                  "src": "523:4:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -539,10 +539,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1751,
+                    "id": 2996,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "523:4:5",
+                    "src": "523:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -552,33 +552,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "522:6:5"
+              "src": "522:6:7"
             },
-            "scope": 1763,
-            "src": "466:120:5",
+            "scope": 3008,
+            "src": "466:120:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1764,
-        "src": "180:409:5"
+        "scope": 3009,
+        "src": "180:409:7"
       }
     ],
-    "src": "0:589:5"
+    "src": "0:589:7"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/ERC20Mintable.sol",
     "exportedSymbols": {
       "ERC20Mintable": [
-        1763
+        3008
       ]
     },
-    "id": 1764,
+    "id": 3009,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1742,
+        "id": 2987,
         "literals": [
           "solidity",
           "^",
@@ -586,16 +586,16 @@
           ".1"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:7"
       },
       {
         "absolutePath": "/C/Users/lazypuppet/SocialStreams/contracts/zeppelin/ERC20.sol",
         "file": "./ERC20.sol",
-        "id": 1743,
+        "id": 2988,
         "nodeType": "ImportDirective",
-        "scope": 1764,
-        "sourceUnit": 1741,
-        "src": "27:21:5",
+        "scope": 3009,
+        "sourceUnit": 2986,
+        "src": "27:21:7",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -605,42 +605,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1744,
+              "id": 2989,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1740,
-              "src": "206:5:5",
+              "referencedDeclaration": 2985,
+              "src": "206:5:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$1740",
+                "typeIdentifier": "t_contract$_ERC20_$2985",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 1745,
+            "id": 2990,
             "nodeType": "InheritanceSpecifier",
-            "src": "206:5:5"
+            "src": "206:5:7"
           }
         ],
         "contractDependencies": [
-          1740,
-          1832
+          2985,
+          3077
         ],
         "contractKind": "contract",
         "documentation": "@title ERC20Mintable\n @author OpenZeppelin Community - <maintainers@openzeppelin.org>\n @dev ERC20 minting logic.",
         "fullyImplemented": true,
-        "id": 1763,
+        "id": 3008,
         "linearizedBaseContracts": [
-          1763,
-          1740,
-          1832
+          3008,
+          2985,
+          3077
         ],
         "name": "ERC20Mintable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1761,
+              "id": 3006,
               "nodeType": "Block",
-              "src": "529:57:5",
+              "src": "529:57:7",
               "statements": [
                 {
                   "expression": {
@@ -648,12 +648,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1755,
+                        "id": 3000,
                         "name": "to",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1747,
-                        "src": "546:2:5",
+                        "referencedDeclaration": 2992,
+                        "src": "546:2:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -661,12 +661,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1756,
+                        "id": 3001,
                         "name": "value",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1749,
-                        "src": "550:5:5",
+                        "referencedDeclaration": 2994,
+                        "src": "550:5:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -684,18 +684,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1754,
+                      "id": 2999,
                       "name": "_mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1629,
-                      "src": "540:5:5",
+                      "referencedDeclaration": 2874,
+                      "src": "540:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 1757,
+                    "id": 3002,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -703,28 +703,28 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "540:16:5",
+                    "src": "540:16:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1758,
+                  "id": 3003,
                   "nodeType": "ExpressionStatement",
-                  "src": "540:16:5"
+                  "src": "540:16:7"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 1759,
+                    "id": 3004,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "574:4:5",
+                    "src": "574:4:7",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -732,31 +732,31 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 1753,
-                  "id": 1760,
+                  "functionReturnParameters": 2998,
+                  "id": 3005,
                   "nodeType": "Return",
-                  "src": "567:11:5"
+                  "src": "567:11:7"
                 }
               ]
             },
             "documentation": "@dev Function to mint tokens\n@param to The address that will receive the minted tokens.\n@param value The amount of tokens to mint.\n@return A boolean that indicates if the operation was successful.",
-            "id": 1762,
+            "id": 3007,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1750,
+              "id": 2995,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1747,
+                  "id": 2992,
                   "name": "to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1762,
-                  "src": "480:10:5",
+                  "scope": 3007,
+                  "src": "480:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -764,10 +764,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1746,
+                    "id": 2991,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "480:7:5",
+                    "src": "480:7:7",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -779,11 +779,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1749,
+                  "id": 2994,
                   "name": "value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1762,
-                  "src": "492:13:5",
+                  "scope": 3007,
+                  "src": "492:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -791,10 +791,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1748,
+                    "id": 2993,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "492:7:5",
+                    "src": "492:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -804,19 +804,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "479:27:5"
+              "src": "479:27:7"
             },
             "returnParameters": {
-              "id": 1753,
+              "id": 2998,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1752,
+                  "id": 2997,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1762,
-                  "src": "523:4:5",
+                  "scope": 3007,
+                  "src": "523:4:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -824,10 +824,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1751,
+                    "id": 2996,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "523:4:5",
+                    "src": "523:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -837,20 +837,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "522:6:5"
+              "src": "522:6:7"
             },
-            "scope": 1763,
-            "src": "466:120:5",
+            "scope": 3008,
+            "src": "466:120:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1764,
-        "src": "180:409:5"
+        "scope": 3009,
+        "src": "180:409:7"
       }
     ],
-    "src": "0:589:5"
+    "src": "0:589:7"
   },
   "compiler": {
     "name": "solc",
@@ -973,8 +973,7 @@
     }
   },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-26T15:13:07.201Z",
-  "networkType": "ethereum",
+  "updatedAt": "2020-03-02T02:45:10.943Z",
   "devdoc": {
     "author": "OpenZeppelin Community - <maintainers@openzeppelin.org>",
     "details": "ERC20 minting logic.",

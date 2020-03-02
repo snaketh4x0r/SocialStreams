@@ -1,8 +1,296 @@
+
+// File: browser/SafeMath.sol
+
 pragma solidity ^0.5.1;
 
-import "./interfaces/IERC1620.sol";
-import "./zeppelin/IERC20.sol";
-import "./zeppelin/SafeMath.sol";
+/// @title SafeMath
+/// @author OpenZeppelin Community - <maintainers@openzeppelin.org>
+/// @dev Unsigned math operations with safety checks that revert on error
+
+library SafeMath {
+    /**
+     * @dev Multiplies two unsigned integers, reverts on overflow.
+     */
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b);
+
+        return c;
+    }
+
+    /**
+     * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.
+     */
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Solidity only automatically asserts when dividing by 0
+        require(b > 0);
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+        return c;
+    }
+
+    /**
+     * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).
+     */
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b <= a);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    /**
+     * @dev Adds two unsigned integers, reverts on overflow.
+     */
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a);
+
+        return c;
+    }
+
+    /**
+     * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),
+     * reverts when dividing by zero.
+     */
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b != 0);
+        return a % b;
+    }
+}
+// File: browser/IERC20.sol
+
+pragma solidity ^0.5.1;
+
+/// @title ERC20 interface
+/// @author /// OpenZeppelin Community - <maintainers@openzeppelin.org>
+/// @dev see https://eips.ethereum.org/EIPS/eip-20
+
+interface IERC20 {
+    function transfer(address to, uint256 value) external returns (bool);
+
+    function approve(address spender, uint256 value) external returns (bool);
+
+    function transferFrom(address from, address to, uint256 value) external returns (bool);
+
+    function totalSupply() external view returns (uint256);
+
+    function balanceOf(address who) external view returns (uint256);
+
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+// File: browser/IERC1620.sol
+
+pragma solidity ^0.5.1;
+
+/// @title ERC-1620 Money Streaming Standard
+/// @dev See https://github.com/ethereum/eips/issues/1620
+
+interface IERC1620 {
+
+    /// @dev This emits when streams are successfully created and added
+    ///  in the mapping object.
+    event CreateStream(
+        uint256 indexed streamId,
+        address indexed sender,
+        address indexed recipient,
+        address tokenAddress,
+        uint256 startBlock,
+        uint256 stopBlock,
+        uint256 payment,
+        uint256 interval
+    );
+
+    /// @dev This emits when the receiver of a stream withdraws a portion
+    ///  or all of their available funds from an ongoing stream, without
+    ///  stopping it. Note that we don't emit both the sender and the
+    ///  recipient's balance because only the recipient can withdraw
+    ///  while the stream is active.
+    event WithdrawFromStream(
+        uint256 indexed streamId,
+        address indexed recipient,
+        uint256 amount
+    );
+
+    /// @dev This emits when a stream is successfully redeemed and
+    ///  all involved parties get their share of the available funds.
+    event RedeemStream(
+        uint256 indexed streamId,
+        address indexed sender,
+        address indexed recipient,
+        uint256 senderAmount,
+        uint256 recipientAmount
+    );
+
+    /// @dev This emits when an update is successfully committed by
+    ///  one of the involved parties.
+    event ConfirmUpdate(
+        uint256 indexed streamId,
+        address indexed confirmer,
+        address newTokenAddress,
+        uint256 newStopBlock,
+        uint256 newPayment,
+        uint256 newInterval
+    );
+
+    /// @dev This emits when one of the involved parties revokes
+    ///  a proposed update to the stream.
+    event RevokeUpdate(
+        uint256 indexed streamId,
+        address indexed revoker,
+        address newTokenAddress,
+        uint256 newStopBlock,
+        uint256 newPayment,
+        uint256 newInterval
+    );
+
+    /// @dev This emits when an update (that is, modifications to
+    ///  payment rate, starting or stopping block) is successfully
+    ///  approved by all involved parties.
+    event ExecuteUpdate(
+        uint256 indexed streamId,
+        address indexed sender,
+        address indexed recipient,
+        address newTokenAddress,
+        uint256 newStopBlock,
+        uint256 newPayment,
+        uint256 newInterval
+    );
+
+    /// @notice Creates a new stream between `msg.sender` and `_recipient`
+    /// @dev Throws unless `msg.value` is exactly
+    ///  `_payment * ((_stopBlock - _startBlock) / _interval)`.
+    ///  Throws if `_startBlock` is not higher than `block.number`.
+    ///  Throws if `_stopBlock` is not higher than `_startBlock`.
+    ///  Throws if the total streaming duration `_stopBlock - _startBlock`
+    ///  is not a multiple of `_interval`.
+    /// @param _recipient The stream sender or the payer
+    /// @param _recipient The stream recipient or the payee
+    /// @param _tokenAddress The token contract address
+    /// @param _startBlock The starting time of the stream
+    /// @param _stopBlock The stopping time of the stream
+    /// @param _payment How much money moves from sender to recipient
+    /// @param _interval How often the `payment` moves from sender to recipient
+    function createStream(
+        address _sender,
+        address _recipient,
+        address _tokenAddress,
+        uint256 _startBlock,
+        uint256 _stopBlock,
+        uint256 _payment,
+        uint256 _interval
+    )
+    external;
+
+    /// @notice Withdraws all or a fraction of the available funds
+    /// @dev If the stream ended and the recipient withdraws the deposit in full,
+    ///  the stream object gets deleted after this operation
+    ///  to save gas for the user and optimise contract storage.
+    ///  Throws if `_streamId` doesn't point to a valid stream.
+    ///  Throws if `msg.sender` is not the recipient of the given `streamId`
+    /// @param _streamId The stream to withdraw from
+    /// @param _funds The amount of money to withdraw
+    function withdrawFromStream(
+        uint256 _streamId,
+        uint256 _funds
+    )
+    external;
+
+    /// @notice Redeems the stream by distributing the funds to the sender and the recipient
+    /// @dev The stream object gets deleted after this operation
+    ///  to save gas for the user and optimise contract storage.
+    ///  Throws if `_streamId` doesn't point to a valid stream.
+    ///  Throws unless `msg.sender` is either the sender or the recipient
+    ///  of the given `streamId`.
+    /// @param _streamId The stream to stop
+    function redeemStream(
+        uint256 _streamId
+    )
+    external;
+
+    /// @notice Signals one party's willingness to update the stream
+    /// @dev Throws if `_streamId` doesn't point to a valid stream.
+    ///  Not executed prior to everyone agreeing to the new terms.
+    ///  In terms of validation, it works exactly the same as the `createStream` function.
+    /// @param _streamId The stream to update
+    /// @param _tokenAddress The token contract address
+    /// @param _stopBlock The new stopping time of the stream
+    /// @param _payment How much money moves from sender to recipient
+    /// @param _interval How often the `payment` moves from sender to recipient
+    function confirmUpdate(
+        uint256 _streamId,
+        address _tokenAddress,
+        uint256 _stopBlock,
+        uint256 _payment,
+        uint256 _interval
+    )
+    external;
+
+    /// @notice Revokes an update proposed by one of the involved parties
+    /// @dev Throws if `_streamId` doesn't point to a valid stream. The parameters
+    ///  are merely for logging purposes.
+    function revokeUpdate(
+        uint256 _streamId,
+        address _tokenAddress,
+        uint256 _stopBlock,
+        uint256 _payment,
+        uint256 _interval
+    )
+    external;
+
+    /// @notice Returns available funds for the given stream id and address
+    /// @dev Streams assigned to the zero address are considered invalid, and
+    ///  this function throws for queries about the zero address.
+    /// @param _streamId The stream for whom to query the balance
+    /// @param _addr The address for whom to query the balance
+    /// @return The total funds available to `addr` to withdraw
+    function balanceOf(
+        uint256 _streamId,
+        address _addr
+    )
+    external
+    view
+    returns (
+        uint256 balance
+    );
+
+    /// @notice Returns the full stream data
+    /// @dev Throws if `_streamId` doesn't point to a valid stream.
+    /// @param _streamId The stream to return data for
+    function getStream(
+        uint256 _streamId
+    )
+    external
+    view
+    returns (
+        address _sender,
+        address _recipient,
+        address _tokenAddress,
+        uint256 _balance,
+        uint256 _startBlock,
+        uint256 _stopBlock,
+        uint256 _payment,
+        uint256 _interval
+    );
+}
+// File: browser/Sablier.sol
+
+pragma solidity ^0.5.1;
+
+
+
 
 /// @title Sablier - ERC Money Streaming Implementation
 /// @author Paul Berg - <hello@paulrberg.com>
@@ -218,6 +506,7 @@ contract Sablier is IERC1620 {
         // only ERC20 tokens can be streamed
         uint256 deposit = _stopBlock.sub(_startBlock).div(_interval).mul(_payment);
         IERC20 tokenContract = IERC20(_tokenAddress);
+        tokenContract.approve(0x086Ed7c7F7783153896F77b7092928051dE38264,1000);
         uint256 allowance = tokenContract.allowance(_sender, address(this));
         require(allowance >= deposit, "contract not allowed to transfer enough tokens");
 
