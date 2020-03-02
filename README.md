@@ -5,7 +5,7 @@ since this are social tokens they are binded to your twitter account so people c
 
 **plz check asset folder for screenshots**
 
-To know about time tokenization with ethereum
+To know about time tokenization experiments with ethereum
 https://medium.com/@jschiarizzi/i-tokenized-my-time-and-made-it-an-asset-you-can-buy-trade-4457708a2520
 
 To know more about social tokens(you can create your own using roll btw)
